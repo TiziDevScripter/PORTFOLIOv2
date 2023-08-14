@@ -1,0 +1,95 @@
+:root{
+    --br: .5em;
+}
+*{
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    margin: 0;
+}
+.wrapper{
+    /* background-color: antiquewhite; */
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    padding-top: 3em;
+}
+
+.wrapper .column-left{
+    /* background-color:aquamarine; */
+    max-height: 100vh;
+    padding: 1.5em;
+    font-weight: 600;
+    animation: toRight 1s .5s backwards;
+}
+
+.column-left__whoami{}
+.whoami__name{
+    margin: 0;
+    line-height: 25px;
+}
+.whoami__desc{
+    margin: 1.5em 0;
+    font-size: .9em;
+}
+
+.column-left__nav{
+}
+.nav__links{
+    padding: 0;
+    list-style: none;
+    line-height: 30px;
+}
+.links__link-container{}
+.links__link-container .link{
+    font-size: .8em;
+    text-decoration: none;
+}
+
+.column-left__links{}
+.column-left__links .link{}
+
+
+.column-aside{}
+.column-aside .icons-container{
+    margin-bottom: 1em;
+}
+.icons-container .icon{}
+.column-aside span{
+    font-size: .7em;
+    font-weight: 700;
+}
+
+.wrapper .column-right{
+    /* background-color: cadetblue; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    padding: 1.5em;
+    max-height: 100vh;
+}
+.column-right__section-changeable{}
+
+@keyframes toDown {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes toRight {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
