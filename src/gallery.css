@@ -40,7 +40,7 @@
     max-width: 100%;
     object-fit: cover;
     object-position: bottom;
-    animation: toDown 2s .5s backwards;
+    animation: toDown 1s .5s backwards;
     overflow: hidden;
     border-radius: var(--br);
     /* user-select: none; */

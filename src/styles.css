@@ -11,6 +11,8 @@ body{
 .wrapper{
     /* background-color: antiquewhite; */
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     min-height: 100vh;
     max-height: 100vh;
     display: grid;
@@ -47,6 +49,8 @@ body{
 .links__link-container .link{
     font-size: .8em;
     text-decoration: none;
+    user-select: none;
+    cursor: pointer;
 }
 
 .column-left__links{}
