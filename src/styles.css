@@ -1,5 +1,11 @@
 :root{
     --br: .5em;
+    --primary-color: #fa0;
+    --delay-during: .1s;
+    --color1: #fff;
+    --color2: #111;
+    --outline: 1px solid #ddd;
+    --outline-hovered: 1px solid var(--primary-color);
 }
 *{
     box-sizing: border-box;
@@ -7,9 +13,11 @@
 }
 body{
     margin: 0;
+    color: var(--color2);
 }
+html{background-color: var(--color1);}
 .wrapper{
-    /* background-color: antiquewhite; */
+    background-color: var(--color1);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -17,7 +25,7 @@ body{
     max-height: 100vh;
     display: grid;
     grid-template-columns: 250px 1fr;
-    padding-top: 3em;
+    padding-top: 2em;
 }
 
 .wrapper .column-left{
@@ -96,4 +104,41 @@ body{
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+
+
+.button-hovered{
+    position: relative;
+    overflow: hidden;
+    outline: var(--outline);
+    color: var(--color1);
+    background-color: var(--color2);
+    background-color: transparent;
+}
+.button-hovered:hover{
+    color: #111;
+}
+.button-hovered span{
+    position: relative;
+    z-index: 100;
+    color: var(--color2);
+}
+.button-hovered:hover > span{
+    color: #111;
+}
+.button-hovered:after{
+    content: "";
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    transition: .15s ease-in;
+}
+.button-hovered:hover::after{
+    clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
 }

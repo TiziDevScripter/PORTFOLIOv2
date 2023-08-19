@@ -1,10 +1,13 @@
 const $sectionChangeable = document.getElementById('section-changeable'),
     templates = [],
     imagesRoots = [
-        "https://images.unsplash.com/photo-1688591407360-724e6b8cdbee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTgyfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
+        "src/assets/images/12.jpg",
+        "src/assets/images/TiziDev3.png",
+        "src/assets/images/9.jpg",
+        "src/assets/images/3.jpg",
+        "src/assets/images/2.jpg",
+        "src/assets/images/4.jpg",
         "https://images.unsplash.com/photo-1688732252178-d73dddea8464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTQzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
-        "src/assets/TiziDev3.png",
-        "https://images.unsplash.com/photo-1688550608780-700bd9bd0bb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjA0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1688933887296-2452acf991dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Njd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1688759971565-e695af06cc13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NzJ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
         "https://images.unsplash.com/photo-1688759973983-fa77fec09bf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTM0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
@@ -17,28 +20,26 @@ const $sectionChangeable = document.getElementById('section-changeable'),
 let homeTemplate = `
 <div class="gallery-container">
     <div class="gallery">
+        <section class="column column-2">
+            <img src="${imagesRoots[2]}">
+        </section>
+
         <section class="column column-1">
             <img src="${imagesRoots[0]}">
             <img src="${imagesRoots[1]}">
-        </section>
-
-        <section class="column column-2">
-            <img src="${imagesRoots[2]}">
-            <img src="${imagesRoots[3]}">
         </section>
 
         <section class="column column-3">
             <img src="${imagesRoots[4]}">
             <img src="${imagesRoots[5]}">
         </section>
-
-        <section class="column column-4">
-            <img src="${imagesRoots[6]}">
-            <img src="${imagesRoots[7]}">
-        </section>
     </div>
 </div>
 `
+//         <section class="column column-4">
+//             <img src="${imagesRoots[6]}">
+//             <img src="${imagesRoots[7]}">
+//         </section>
 let proyectsTemplate = `
 <div class="proyects-container">
     <div class="proyects">
@@ -49,7 +50,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
             
             <section class="proyect">
@@ -58,7 +59,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
         </section>
 
@@ -69,7 +70,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
 
             <section class="proyect">
@@ -78,7 +79,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
         </section>
 
@@ -89,7 +90,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
 
             <section class="proyect">
@@ -98,7 +99,7 @@ let proyectsTemplate = `
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
-                <button class="button">SEE CODE</button>
+                <button class="button-hovered"><span>SEE CODE</span></button>
             </section>
         </section>
     </div>
@@ -120,20 +121,22 @@ let contactTemplate = `
                 <input type="email" placeholder="Your email">
 
                 <label>Message:</label>
-                <input type="email" placeholder="Your message">
+                <textarea placeholder="Your message"></textarea>
 
-                <button type="submit">SEND</button>
+                <button class="button-hovered" type="submit"><span>SEND</span></button>
             </form>
         </div>
-        <div class="or-separator">or</div>
+        <div class="or-separator">
+            <span>or</span>
+        </div>
         <div class="other-contact-container">
             <div class="logos">
-                <a class="link" href="http://www.x.com/tizidevscripter">
-                    <img src="src/assets/twitter-x.svg">
+                <a class="link" target="_blank" href="http://www.x.com/tizidevscripter">
+                    <img src="src/assets/logos/twitter.svg" alt="logo-twitter"/>
                 </a>
 
-                <a class="link" href="http://www.instagram.com/tizianomontenegro07">
-                    <img src="src/assets/instagram.svg">
+                <a class="link" target="_blank" href="http://www.instagram.com/tizianomontenegro07">
+                    <img src="src/assets/logos/instagram.svg" alt="logo-instagram"/>
                 </a>
             </div>
         </div>
@@ -145,7 +148,7 @@ const changeView = function (element, template) {
 }
 
 // INITIAL TEMPLATE TO INITIALIZED APP
-$sectionChangeable.innerHTML = proyectsTemplate
+$sectionChangeable.innerHTML = homeTemplate
 
 // CHANGE VIEW
 homeLink.addEventListener('click', ()=>{
@@ -157,3 +160,21 @@ proyectLink.addEventListener('click', ()=>{
 contactLink.addEventListener('click', ()=>{
     changeView($sectionChangeable, contactTemplate)
 })
+
+
+
+{/* const rootStyles = document.documentElement.style;
+rootStyles.setProperty('--br','0px') */}
+let darkBoolean = false
+function activeDarkMode () {
+    if(darkBoolean == false) {
+        document.documentElement.style.setProperty('--color1', '#111')
+        document.documentElement.style.setProperty('--color2', '#eee')
+        darkBoolean = true
+    }
+    else {
+        document.documentElement.style.setProperty('--color1', '#fff')
+        document.documentElement.style.setProperty('--color2', '#111')
+        darkBoolean = false
+    }
+}
