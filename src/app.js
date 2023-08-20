@@ -1,3 +1,4 @@
+"strict mode";
 const $sectionChangeable = document.getElementById('section-changeable'),
     templates = [],
     imagesRoots = [
@@ -14,32 +15,64 @@ const $sectionChangeable = document.getElementById('section-changeable'),
         "https://images.unsplash.com/photo-1688649720968-9f2d3c81d458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTE3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60"
     ],
     homeLink = document.getElementById("home-link"),
+    skillsLink = document.getElementById("skills-link"),
     proyectLink = document.getElementById("proyects-link"),
-    contactLink = document.getElementById("contact-link");
+    contactLink = document.getElementById("contact-link"),
+    imagesLogos = {
+        github: "src/assets/logos/github.svg",
+        twitter: "src/assets/logos/twitter.svg",
+        instagram: "src/assets/logos/instagram.svg",
+        githubDarkMode: "src/assets/logos/github-darkmode.svg",
+        twitterDarkMode: "src/assets/logos/twitter-darkmode.svg",
+        instagramDarkMode: "src/assets/logos/instagram-darkmode.svg",
+    },
+    logoGithub = document.getElementById("logo-github"),
+    darkModeButton = document.getElementById("button-darkmode");
+    
+let twitterLogoToChange = imagesLogos.twitter, 
+    instagramLogoToChange = imagesLogos.instagram,
+    darkBoolean = false;
+// let galleryTemplate = `
+// <div class="gallery-container">
 
-let homeTemplate = `
-<div class="gallery-container">
-    <div class="gallery">
-        <section class="column column-2">
-            <img src="${imagesRoots[2]}">
-        </section>
+//     <div class="gallery">
+//         <section class="column column-1">
+//             <img src="${imagesRoots[0]}">
+//             <img src="${imagesRoots[1]}">
+//         </section>
 
-        <section class="column column-1">
-            <img src="${imagesRoots[0]}">
-            <img src="${imagesRoots[1]}">
-        </section>
 
-        <section class="column column-3">
-            <img src="${imagesRoots[4]}">
-            <img src="${imagesRoots[5]}">
-        </section>
-    </div>
-</div>
-`
+//         <section class="column column-2">
+//             <img src="${imagesRoots[2]}">
+//         </section>
+
 //         <section class="column column-4">
 //             <img src="${imagesRoots[6]}">
 //             <img src="${imagesRoots[7]}">
 //         </section>
+//     </div>
+// </div>
+// `
+function changeView (element, template) {
+    element.innerHTML = template
+}
+
+
+{/* const rootStyles = document.documentElement.style;
+rootStyles.setProperty('--br','0px') */}
+
+
+// TEMPLATES
+let homeTemplate = `
+<div class="home-container">
+    <h1>Hola Mundo</h1>
+</div>
+`;
+let skillsTemplate = `
+<div class="skills-container">
+    skills
+</div>
+`;
 let proyectsTemplate = `
 <div class="proyects-container">
     <div class="proyects">
@@ -104,7 +137,7 @@ let proyectsTemplate = `
         </section>
     </div>
 </div>
-`
+`;
 let contactTemplate = `
 <div class="contact-container">
     <div class="forms-container">
@@ -132,49 +165,56 @@ let contactTemplate = `
         <div class="other-contact-container">
             <div class="logos">
                 <a class="link" target="_blank" href="http://www.x.com/tizidevscripter">
-                    <img src="src/assets/logos/twitter.svg" alt="logo-twitter"/>
+                    <img id="logo-twitter" src="${twitterLogoToChange}" alt="logo-twitter"/>
                 </a>
 
                 <a class="link" target="_blank" href="http://www.instagram.com/tizianomontenegro07">
-                    <img src="src/assets/logos/instagram.svg" alt="logo-instagram"/>
+                    <img id="logo-instagram" src="${instagramLogoToChange}" alt="logo-instagram"/>
                 </a>
             </div>
         </div>
     </div>
 </div>
-`
-const changeView = function (element, template) {
-    element.innerHTML = template
-}
+`;
+const logoTwitter = document.getElementById("logo-twitter"),
+logoInstagram = document.getElementById("logo-instagram");
 
-// INITIAL TEMPLATE TO INITIALIZED APP
-$sectionChangeable.innerHTML = homeTemplate
-
-// CHANGE VIEW
-homeLink.addEventListener('click', ()=>{
-    changeView($sectionChangeable, homeTemplate)
-})
-proyectLink.addEventListener('click', ()=>{
-    changeView($sectionChangeable, proyectsTemplate)
-})
-contactLink.addEventListener('click', ()=>{
-    changeView($sectionChangeable, contactTemplate)
-})
-
-
-
-{/* const rootStyles = document.documentElement.style;
-rootStyles.setProperty('--br','0px') */}
-let darkBoolean = false
 function activeDarkMode () {
     if(darkBoolean == false) {
-        document.documentElement.style.setProperty('--color1', '#111')
-        document.documentElement.style.setProperty('--color2', '#eee')
-        darkBoolean = true
+        document.documentElement.style.setProperty('--color1', '#111');
+        document.documentElement.style.setProperty('--color2', '#eee');
+        document.documentElement.style.setProperty('--primary-color','#0af');
+        document.documentElement.style.setProperty('--secondary-color','#0cf');
+    
+        logoGithub.src = imagesLogos.githubDarkMode;
+        // document.getElementById('logo-twitter').src = imagesLogos.twitterDarkMode;
+        // document.getElementById('logo-instagram').src = imagesLogos.instagramDarkMode;
+
+        darkBoolean = true;
     }
     else {
-        document.documentElement.style.setProperty('--color1', '#fff')
-        document.documentElement.style.setProperty('--color2', '#111')
-        darkBoolean = false
+        document.documentElement.style.setProperty('--color1', '#fff');
+        document.documentElement.style.setProperty('--color2', '#111');
+        document.documentElement.style.setProperty('--primary-color','#fa0');
+        document.documentElement.style.setProperty('--secondary-color','#fc0');
+        
+        logoGithub.src = imagesLogos.github;
+        // document.getElementById('logo-twitter').src = imagesLogos.twitter;
+        // document.getElementById('logo-instagram').src = imagesLogos.instagram;
+        console.log(logoGithub);
+        darkBoolean = false;
     }
 }
+// CHANGE VIEW
+homeLink.addEventListener('click', ()=> changeView($sectionChangeable, homeTemplate));
+skillsLink.addEventListener('click', ()=> changeView($sectionChangeable, skillsTemplate));
+proyectLink.addEventListener('click', ()=> changeView($sectionChangeable, proyectsTemplate));
+contactLink.addEventListener('click', ()=> changeView($sectionChangeable, contactTemplate));
+
+// CHANGE TO DARK MDOE
+darkModeButton.addEventListener('click', ()=> activeDarkMode());
+
+// INITIAL TEMPLATE TO INITIALIZED APP
+$sectionChangeable.innerHTML = homeTemplate;
+
+logoGithub.src = imagesLogos.github;
