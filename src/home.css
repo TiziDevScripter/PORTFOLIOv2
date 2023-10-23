@@ -1,0 +1,15 @@
+.home-container {
+    animation: toDown 1s .1s ease-in-out both;
+    opacity: 0;
+}
+.home-container .skills{}
+.home-container h1{
+    font-size: 2.5em;
+}
+.home-container p{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.home-container .skills img{
+    height: 70px;
+}

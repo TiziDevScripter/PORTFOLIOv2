@@ -2,20 +2,10 @@
 const $sectionChangeable = document.getElementById('section-changeable'),
     templates = [],
     imagesRoots = [
-        "src/assets/images/12.jpg",
         "src/assets/images/TiziDev3.png",
-        "src/assets/images/9.jpg",
-        "src/assets/images/3.jpg",
-        "src/assets/images/2.jpg",
-        "src/assets/images/4.jpg",
-        "https://images.unsplash.com/photo-1688732252178-d73dddea8464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTQzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
-        "https://images.unsplash.com/photo-1688933887296-2452acf991dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Njd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
-        "https://images.unsplash.com/photo-1688759971565-e695af06cc13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NzJ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=400&q=60",
-        "https://images.unsplash.com/photo-1688759973983-fa77fec09bf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTM0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60",
-        "https://images.unsplash.com/photo-1688649720968-9f2d3c81d458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTE3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=400&q=60"
+        "https://github.com/tizielpro/formGreen/raw/main/preview.png"
     ],
     homeLink = document.getElementById("home-link"),
-    skillsLink = document.getElementById("skills-link"),
     proyectLink = document.getElementById("proyects-link"),
     contactLink = document.getElementById("contact-link"),
     imagesLogos = {
@@ -65,12 +55,20 @@ rootStyles.setProperty('--br','0px') */}
 // TEMPLATES
 let homeTemplate = `
 <div class="home-container">
-    <h1>Hola Mundo</h1>
-</div>
-`;
-let skillsTemplate = `
-<div class="skills-container">
-    skills
+    <h1>Full Stack Web Developer</h1>
+    <p>¡¡¡Hello there!!!, my name is Tiziano Montenegro, I was born in Argentina, I started programming when I was 15, I love completing programming logic challenges, learning new technologies, making friends.</p>
+    <h2>My Skills:</h2>
+    <article class="skills">
+        <img src="https://cdn.iconscout.com/icon/free/png-512/free-html-3628838-3030115.png?f=webp&w=256" alt="HTML">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png" alt="TypeScript">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png" alt="ReactJS">
+        <img src="https://cdn.worldvectorlogo.com/logos/redux.svg" alt="Redux">
+        <img src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" alt="NodeJS">
+        <img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" alt="Git">
+        <img src="https://cdn.worldvectorlogo.com/logos/sqlite.svg" alt="SQLite">
+    </article>
 </div>
 `;
 let proyectsTemplate = `
@@ -88,7 +86,7 @@ let proyectsTemplate = `
             
             <section class="proyect">
                 <div class="proyect__img-container">
-                    <img src="${imagesRoots[3]}" alt="proyect-2">
+                    <img src="${imagesRoots[1]}" alt="proyect-2">
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
@@ -99,7 +97,7 @@ let proyectsTemplate = `
         <section class="proyects__column">
             <section class="proyect">
                 <div class="proyect__img-container">
-                    <img src="${imagesRoots[2]}" alt="proyect-3">
+                    <img src="${imagesRoots[1]}" alt="proyect-3">
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
@@ -108,7 +106,7 @@ let proyectsTemplate = `
 
             <section class="proyect">
                 <div class="proyect__img-container">
-                    <img src="${imagesRoots[4]}" alt="proyect-3">
+                    <img src="${imagesRoots[1]}" alt="proyect-3">
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
@@ -119,7 +117,7 @@ let proyectsTemplate = `
         <section class="proyects__column">
             <section class="proyect">
                 <div class="proyect__img-container">
-                    <img src="${imagesRoots[5]}" alt="proyect-3">
+                    <img src="${imagesRoots[1]}" alt="proyect-3">
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
@@ -128,7 +126,7 @@ let proyectsTemplate = `
 
             <section class="proyect">
                 <div class="proyect__img-container">
-                    <img src="${imagesRoots[6]}" alt="proyect-3">
+                    <img src="${imagesRoots[1]}" alt="proyect-3">
                 </div>
                 <h2 class="title">Gallery</h2>
                 <p class="desc">this is a gallery</p>
@@ -207,7 +205,6 @@ function activeDarkMode () {
 }
 // CHANGE VIEW
 homeLink.addEventListener('click', ()=> changeView($sectionChangeable, homeTemplate));
-skillsLink.addEventListener('click', ()=> changeView($sectionChangeable, skillsTemplate));
 proyectLink.addEventListener('click', ()=> changeView($sectionChangeable, proyectsTemplate));
 contactLink.addEventListener('click', ()=> changeView($sectionChangeable, contactTemplate));
 
